@@ -1,0 +1,28 @@
+
+$primary:#FF8906;
+$secondary:#F25F4C;
+$tertiary:#E53170;
+$dark:#0F0E17;
+$black:#000000;
+$light:#FFFFFE;
+$text:#A7A9BE;
+
+body{
+    background-color: $dark ;
+    color:$text;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid $secondary;
+    margin: 1em 0;
+    padding: 1rem;
+    img{
+        width: 200px;
+        height: 200px;
+    }
+    h1{
+        font-size: 72pt;
+    }
+}
