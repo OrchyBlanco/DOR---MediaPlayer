@@ -5,12 +5,17 @@ $tertiary:#E53170;
 $dark:#0F0E17;
 $black:#000000;
 $light:#FFFFFE;
-$text:#A7A9BE;
+$info:#A7A9BE;
+
+@import "./bootstrap-5.1.3/bootstrap-5.1.3/scss/bootstrap.scss";
+
 
 body{
     background-color: $dark ;
-    color:$text;
+    color:$info;
 }
+
+
 nav{
     display: flex;
     justify-content: space-between;
@@ -26,3 +31,4 @@ nav{
         font-size: 72pt;
     }
 }
+
