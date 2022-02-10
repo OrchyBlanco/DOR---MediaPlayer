@@ -24,11 +24,26 @@ nav{
     margin: 1em 0;
     padding: 1rem;
     img{
+       
         width: 200px;
         height: 200px;
+        
     }
     h1{
         font-size: 72pt;
+    }
+}
+
+.btn{
+    :hover{
+        border: solid 3px $light;
+        
+    }
+    :active{
+        border: solid 3px $primary;
+        color:$primary;
+        background-color: $dark;
+
     }
 }
 

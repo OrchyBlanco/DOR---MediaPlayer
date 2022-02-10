@@ -11985,4 +11985,14 @@ nav img {
 nav h1, nav .h1 {
   font-size: 72pt;
 }
+
+.btn :hover {
+  border: solid 3px #FFFFFE;
+}
+
+.btn :active {
+  border: solid 3px #FF8906;
+  color: #FF8906;
+  background-color: #0F0E17;
+}
 /*# sourceMappingURL=style.css.map */

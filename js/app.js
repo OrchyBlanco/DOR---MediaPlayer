@@ -3,20 +3,20 @@ Vue.component("Cancion", {
   template: `
     <div class="card mb-12 m-5 cancion">
         <div class="row g-0 p-2">
-          <div class="col-md-1">
+          <div class="col-2">
               <img :src="cancion.url" class="img-fluid rounded-start " alt="...">
           </div>
-          <div class="col-md-10">
+          <div class="col-8">
               <div class="card-body">
-              <h5 class="card-title">{{cancion.name}}</h5>
+              <h4 class="card-title">{{cancion.name}}</h4>
               <p class="card-text"><strong>Autor:</strong> {{cancion.author}}</p>
               <p class="card-text"><strong>Descripcion:</strong> {{cancion.descripcion}}</p>
               </div>            
           </div>
-          <div class="col-md-1 d-flex align-items-center">
+          <div class="col-2 d-flex align-items-center">
           
-            <button class="col-10 btn btn-primary text-light" @click="playSong(cancion.url_musica)">Reproducir
-            
+            <button class="col-10 btn btn-primary text-light" @click="playSong(cancion.url_musica)">
+            Reproducir ->            
             </button>        
           </div>
         </div>
