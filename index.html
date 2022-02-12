@@ -16,23 +16,12 @@
       <img src="./media/svg/logo.svg" alt="" id="logo">
       <h1>Media Player</h1>
     </nav> 
-    <template id="reproductor">
-      <aside>
-        <button>X</button>
-        <div id="reproductor"></div>
-        <div id="datos">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-          sequi voluptatibus quod at autem optio distinctio delectus, iusto sit
-          sunt impedit nemo fuga veniam molestiae quos fugit deserunt tempore
-          quibusdam.
-        </div>
-      </aside>
-    </template> 
+     
     <template id="cancion">
-      <div class="card mb-12 m-5 cancion">
+      <section class="card mb-12 m-5 cancion">
         <div class="row g-0 p-2">
           <div class="col-2">
-              <img :src="cancion.url" class="img-fluid rounded " >
+              <img :src="cancion.img" class="img-fluid rounded " >
           </div>
           <div class="col-8">
               <div class="card-body">
@@ -43,14 +32,15 @@
           </div>
           <div class="col-2 d-flex align-items-center">
           
-            <button class="col-10 btn-custom" @click="selectSong()">
-            <span>Reproducir <i class="bi bi-headphones" ></i></span>
+            <button class="col-10 btn-custom" @click="selectSong">
+            <span>SELECIONAR CANCION <i class="bi bi-headphones" ></i></span>
             </button>        
           </div>
         </div>
-    </div>
+    </section>
     </template>
-    <main id="app"></main>    
+    <main id="app"></main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
     <script src="./js/bootstrap.js"></script>
     <script src="./js/vue.js"></script>
     <script src="./js/app.js"></script>

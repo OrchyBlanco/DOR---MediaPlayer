@@ -96,6 +96,10 @@ img {
   width: 50px;
 }
 
+#main #aside-reproductor {
+  display: none;
+}
+
 #main article {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
