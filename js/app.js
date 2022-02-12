@@ -1,43 +1,34 @@
+Vue.component("Reproductor", {
+  props: ["datos"],  
+  template: "#reproductor" ,
+  
+});
+
 Vue.component("Cancion", {
   props: ["cancion"],
-  template: `
-    <div class="card mb-12 m-5 cancion">
-        <div class="row g-0 p-2">
-          <div class="col-2">
-              <img :src="cancion.url" class="img-fluid rounded-start " alt="...">
-          </div>
-          <div class="col-8">
-              <div class="card-body">
-              <h4 class="card-title">{{cancion.name}}</h4>
-              <p class="card-text"><strong>Autor:</strong> {{cancion.author}}</p>
-              <p class="card-text"><strong>Descripcion:</strong> {{cancion.descripcion}}</p>
-              </div>            
-          </div>
-          <div class="col-2 d-flex align-items-center">
-          
-            <button class="col-10 btn btn-primary text-light" @click="playSong(cancion.url_musica)">
-            Reproducir ->            
-            </button>        
-          </div>
-        </div>
-    </div>
-    `,
-  methods:{
-    playSong (song){
-      if(song){
+  template: "#cancion",
+  methods: {
+    playSong(song) {
+      if (song) {
         var audio = new Audio(song);
         audio.play();
       }
+    },
+    selectSong(){
+      this.$emit('select',{seleccion: this.cancion})
     }
-  }
+  },
 });
 
 Vue.component("Musica", {
   props: ["musica"],
-  template: `
+  template://html
+   `
     <section>
         <Cancion
-        v-for="(cancion,index) in musica" :key="index" :cancion="cancion">
+        v-for="(cancion,index) in musica" :key="index" :cancion="cancion"
+        
+        >
         </Cancion>
     </section>
     `,
@@ -52,33 +43,36 @@ const app = new Vue({
         author: "asdf",
         descripcion: "zxcvb",
         url: "./media/img/canciones/cancion1.jfif",
-        url_musica:"./media/audio/Only the Braves.mp3"
+        url_musica: "./media/audio/Only the Braves.mp3",
       },
       {
         name: "asd",
         author: "qwe",
         descripcion: "qwerty",
         url: "./media/img/canciones/DOD_OST_cover.jpg",
-        url_musica:"./media/audio/Drakengard_w_selection.mp3"
+        url_musica: "./media/audio/Drakengard_w_selection.mp3",
       },
       {
         name: "",
         author: "",
         descripcion: "",
         url: "./media/img/canciones/Darksouls.jpg",
-        url_musica:"./media/audio/Gwyn Lord of Cinder.mp3"
+        url_musica: "./media/audio/Gwyn Lord of Cinder.mp3",
       },
     ],
     videos: [
       { name: "", descripcion: "", url: "" },
       { name: "", descripcion: "", url: "" },
     ],
+    seleccion:null,
   },
-  template: `
-    <div>
-      <aside></aside>
-      <Musica :musica="musica"></Musica>
-      
+  template://html
+   `
+    <div id="main">    
+      <Reproductor @select="setSeleccion"></Reproductor>
+      <article>
+        <Musica :musica="musica"></Musica>   
+      </article>
     </div>
     `,
 });
