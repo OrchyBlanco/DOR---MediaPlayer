@@ -2,83 +2,117 @@ var audio;
 
 Vue.component("Reproductor", {
   props: {
-    datos:Object
+    itemSelec: Object
   },
-   
-  template://html
-  `
-  
-  <aside id="aside-reproductor">
-  <button @click="hiddeAside">X</button>
-  <div id="reproductor">
-    
-    <button @click="playSong">Play</button>
-    <button @click="pauseSong">Pause</button>
-    <button @click="stopSong">STOP</button>
-    <img :src="datos.img">
-  </div>
-  <div id="datos">
-    <h1>TITULO: {{datos.name}}</h1>
-    <h2>AUTOR: {{datos.author}}</h2>
-    <p>DESCRIPCION: {{datos.descripcion}}</p>    
-  </div>
-</aside>
-  `,
-methods: {
-    hiddeAside: function(){
-      $("#aside-reproductor").hide();
-      if(audio){
-        audio.pause();
-        audio.currentTime=0;
-      }
-      
-    },
-    playSong:function() {
-        audio.play();
-        
-       },
-    pauseSong:function(){
-      audio.pause();
-    },
-    stopSong:function(){
-      audio.pause();
-      audio.currentTime=0;
-    }
-}
 
+  data: {
+    itemSeleccionado: {
+      name: null,
+      author: null,
+      descripcion: null,
+      img: null,
+      media: null,
+    }
+  },
+
+  template://html
+    `
+    <aside id="aside-reproductor">
+      <div>
+        <button class="" @click="ampliar"><img :src="./media/svg/ampliar.svg"></img></button>
+        <button class="" @click="reducir"><img :src="./media/svg/ampliar.svg"></img></button>
+        <button class="" @click="ocultar"><img :src="./media/svg/close.svg"></img></button>
+      </div>
+      <div>
+        <img class="caratula" :src="itemSelec.url"></img>
+        <!-- <video width="300" height="200">
+             <source src="" type="video/">
+            </video> -->
+        <!-- <audio></audio> -->
+        <div>
+          <input type="range" min="0" max=audio.duration value=audio.currentTime />
+          <button class="" @click="playpausar"><img :src="./media/svg/play.svg"></img></button>
+          <button class="" @click="songstop"><img :src="./media/svg/stop.svg"></img></button>
+        </div>
+        <h4>TITULO: {{itemSelec.name}} </h4>
+        <h5>AUTOR: {{itemSelec.autor}} </h5>
+        <p>DESCRIPCION: {{itemSelec.descripcion}} </p>
+        <div>
+          <button class="" @click="ensordecer"><img :src="./media/svg/Sound_high.svg"></img></button>
+          <input type="range" min="0" max=100 value="0" />
+        </div>
+      </div>
+    </aside>
+  `,
+
+  methods: {
+    playpausar: function () {
+      if (audio.paused) {
+        audio.play();
+      }
+      else {
+        audio.pause();
+      }
+    },
+    songstop: function () {
+      if (!audio.paused) {
+        audio.pause();
+      }
+      audio.currentTime = 0;
+    },
+    ensordecer: function (){
+      audio.muted()
+    },
+    ocultar: function () {
+      $("#aside-reproductor").classList.add("oculto");
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    },
+    ampliar: function () {
+      $("#aside-reproductor").classList.add("completo");
+    },
+    reducir: function () {
+      $("#aside-reproductor").classList.remove("completo");
+    }
+  },
 });
 
 Vue.component("Cancion", {
   props: ["cancion"],
+
   template: "#cancion",
-  data: function(){
-      return {
-        name: null,
-        author: null,
-        descripcion: null,
-        img: null,
-        media: null
-      }
+
+  data: function () {
+    return {
+      name: null,
+      author: null,
+      descripcion: null,
+      img: null,
+      media: null
+    }
   },
-  methods: {    
-    selectSong:function(){
-      this.$emit('selectSong',{
+
+  methods: {
+    selectSong: function () {
+      this.$emit('selectSong', {
         name: this.cancion.name,
         author: this.cancion.author,
         descripcion: this.cancion.descripcion,
         img: this.cancion.img,
         media: this.cancion.media
       })
-      if(audio){
+      if (audio) {
         audio.pause();
-        audio.currentTime=0;
+        audio.currentTime = 0;
       }
-      audio=new Audio(this.cancion.media);
+      audio = new Audio(this.cancion.media);
       audio.play();
-      $("#aside-reproductor").show();
-      
+      $("#aside-reproductor").classList.remove("oculto");
+
       ;
-    }   
+    }
   },
 });
 
@@ -89,6 +123,7 @@ Vue.component("Musica", {
         cancion_seleccionada:null
     }        
 },
+
   template://html
    `
     <article>
@@ -102,13 +137,15 @@ Vue.component("Musica", {
         <span class="d-none">Cancion seleccionada(COMPONENTE MUSICA): {{cancion_seleccionada}}</span>
     </article>
     `,
-  updated: function(){
-    this.$emit("selectMusica",this.cancion_seleccionada);
+
+  updated: function () {
+    this.$emit("selectMusica", this.cancion_seleccionada);
   }
 });
 
 const app = new Vue({
   el: "#app",
+
   data: {
     musica: [
       {
@@ -146,13 +183,14 @@ const app = new Vue({
       media: null,
     },
   },
-  
+
   template://html
-   `
-    <div id="main">    
-    <Reproductor
-    :datos="itemSeleccionado"
-    ></Reproductor>
+    `
+    <div id="main">
+    
+        <Reproductor
+        :datos="itemSeleccionado"
+        ></Reproductor>
       
         <Musica 
         :musica="musica"
@@ -162,4 +200,10 @@ const app = new Vue({
         
     </div>
     `,
+
+  watch: {
+    datos: function () {
+      this.$emit('changed', this.itemSeleccionado);
+    }
+  }
 });
