@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="600 200 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <radialGradient id="grad1" cx="40%" cy="40%" r="60%">
+      <stop offset="0.75" style="stop-color:#FFFFFE;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#F25F4C;stop-opacity:0.5"/>
+    </radialGradient>
+  </defs>
+  <circle cx="650" cy="250" r="50" fill="url(#grad1)" style=""/>
+  <rect x="610.009" y="234.955" width="23.861" height="24.313" rx="3" ry="3" style="fill: rgb(242, 95, 76);"/>
+  <path d="M 752.778 395.106 Q 759.597 382.12 766.416 395.106 L 780.053 421.077 Q 786.872 434.063 773.235 434.063 L 745.959 434.063 Q 732.322 434.063 739.141 421.077 Z" style="fill: rgb(242, 95, 76);" transform="matrix(-0.00647, -0.999979, 0.999979, -0.006541, 229.447098, 1009.891235)" bx:shape="triangle 732.322 382.12 54.55 51.943 0.5 0.25 1@68e58138"/>
+  <path style="fill: none; stroke: rgb(242, 95, 76); stroke-width: 5px; stroke-linecap: round;" d="M 663.834 234.468 C 672.888 234.468 678.546 246.245 674.02 255.667 C 672.203 259.449 669.032 262.009 665.43 262.602" transform="matrix(0.999699, 0.024533, -0.024533, 0.999699, 6.298883, -16.355524)"/>
+  <path style="fill: none; stroke: rgb(242, 95, 76); stroke-width: 5px; stroke-linecap: round;" d="M 671.688 228.229 C 682.906 228.229 689.916 244.775 684.308 258.013 C 682.057 263.326 678.128 266.923 673.665 267.757" transform="matrix(0.999699, 0.024533, -0.024533, 0.999699, 6.288374, -16.582897)"/>
+</svg>

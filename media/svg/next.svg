@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="600 200 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <radialGradient id="grad1" cx="40%" cy="40%" r="60%">
+      <stop offset="0.75" style="stop-color:#FFFFFE;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#F25F4C;stop-opacity:0.5"/>
+    </radialGradient>
+  </defs>
+  <circle cx="650" cy="250" r="50" fill="url(#grad1)" style=""/>
+  <path d="M 553.649 167.628 Q 558.655 158.198 563.66 167.628 L 581.15 200.58 Q 586.155 210.01 576.145 210.01 L 541.164 210.01 Q 531.154 210.01 536.159 200.58 Z" style="fill: rgb(242, 95, 76);" transform="matrix(0.001464, 0.999999, -0.999999, 0.001464, 827.711975, -311.641876)" bx:shape="triangle 531.154 158.198 55.001 51.812 0.5 0.182 1@62c24f1f"/>
+  <rect x="667.772" y="219.515" width="11.472" height="53.018" rx="3" ry="3" style="fill: rgb(242, 95, 76);"/>
+</svg>
