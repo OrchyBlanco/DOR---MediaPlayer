@@ -88,7 +88,7 @@ Vue.component("Musica", {
         cancion_seleccionada:null
     }        
 },
-  template:
+  template://html
    `
     <article>
         <Cancion
