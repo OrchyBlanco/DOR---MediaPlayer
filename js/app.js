@@ -89,8 +89,9 @@ Vue.component("Musica", {
     }        
 },
   template://html
+
    `
-    <article>
+    <article >
         <Cancion
         v-for="(cancion,index) in musica" 
         :key="index" 
@@ -148,14 +149,16 @@ const app = new Vue({
   
   template://html
    `
-    <div id="main">    
+    <div id="main" >    
     <Reproductor
     :datos="itemSeleccionado"
+    
     ></Reproductor>
       
         <Musica 
         :musica="musica"
         @selectMusica="itemSeleccionado=$event"
+        
         ></Musica>   
         <span class="d-none">Cancion seleccionada(Root): {{this.itemSeleccionado}}</span>
         
