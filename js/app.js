@@ -141,9 +141,34 @@ const app = new Vue({
       },
     ],
     videos: [
-      { name: null, author: null, descripcion: null, img: null, media: null },
-      { name: null, author: null, descripcion: null, img: null, media: null },
-      { name: null, author: null, descripcion: null, img: null, media: null },
+      {
+        name: "Dungeon master therapy parte 3",
+        author: "brandonTheDM",
+        descripcion: "un corto de tiktok", 
+        img: null, 
+        media: "./media/video/dungeon master therapy.mp4"
+      },
+      {
+        name: "hay calima",
+        author: "desconocido",
+        descripcion: "parodia exagerando la calima en canarias", 
+        img: null, 
+        media: "./media/video/hay calima.mp4"
+      },
+      {
+        name: "a mas de 800m altura",
+        author: "desconocido",
+        descripcion: "un corto de algien subiendo una torre", 
+        img: null, 
+        media: "./media/video/a mas de 800m altura.mp4"
+      },
+      {
+        name: "seguidor de master lee",
+        author: "theVandaLord",
+        descripcion: "un corto de tiktok", 
+        img: null, 
+        media: "./media/video/seguidor de master lee.mp4"
+      },
     ],
     itemSeleccionado: {
       name: null,
