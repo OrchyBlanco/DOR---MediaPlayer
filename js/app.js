@@ -15,6 +15,8 @@ Vue.component("Reproductor", {
     <button @click="playSong">Play</button>
     <button @click="pauseSong">Pause</button>
     <button @click="stopSong">STOP</button>
+    <button @click="forward15sec">+15 sec</button>
+    <button @click="backward15sec">-15 sec</button>
     <img :src="datos.img">
   </div>
   <div id="datos">
@@ -42,6 +44,12 @@ methods: {
     stopSong:function(){
       audio.pause();
       audio.currentTime=0;
+    },
+    forward15sec:function(){
+      audio.currentTime+=15;
+    },
+    backward15sec:function(){
+      audio.currentTime-=15;
     }
 }
 
@@ -99,7 +107,7 @@ Vue.component("Musica", {
         @selectSong="cancion_seleccionada=$event"
         >
         </Cancion>
-        <span class="d-none">Cancion seleccionada(COMPONENTE MUSICA): {{cancion_seleccionada}}</span>
+         <span class="d-none">Cancion seleccionada(COMPONENTE MUSICA): {{cancion_seleccionada}}</span>
     </article>
     `,
   updated: function(){
@@ -160,7 +168,7 @@ const app = new Vue({
         @selectMusica="itemSeleccionado=$event"
         
         ></Musica>   
-        <span class="d-none">Cancion seleccionada(Root): {{this.itemSeleccionado}}</span>
+         <!--<span class="d-none">Cancion seleccionada(Root): {{this.itemSeleccionado}}</span>-->
         
     </div>
     `,

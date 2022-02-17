@@ -89,6 +89,8 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-preferred-size: 2;
+      flex-basis: 2;
 }
 
 #main aside img {
