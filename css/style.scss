@@ -1,54 +1,50 @@
+$primary: #ff8906;
+$secondary: #f25f4c;
+$tertiary: #e53170;
+$dark: #0f0e17;
+$black: #000000;
+$light: #fffffe;
+$text: #a7a9be;
 
-$primary:#FF8906;
-$secondary:#F25F4C;
-$tertiary:#E53170;
-$dark:#0F0E17;
-$black:#000000;
-$light:#FFFFFE;
-$text:#A7A9BE;
-
-
-*{
+* {
     box-sizing: border-box;
 }
-body{
-    background-color: $dark ;
-    color:$text;
+body {
+    background-color: $dark;
+    color: $text;
 }
 
-
-nav{
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 5px solid $secondary;
     margin: 1.25rem 0 0 0;
     padding: 1rem;
-    img{       
+    img {
         width: 200px;
-        height: 200px;  
+        height: 200px;
         flex-grow: 0;
-            
     }
-    h1{
+    h1 {
         font-size: 72pt;
         flex-grow: 0;
     }
 }
-img{
+img {
     width: 300px;
     height: 300px;
     flex-grow: 1;
 }
 
-.btn-custom{
+.btn-custom {
     display: flex;
     flex-direction: column;
     align-items: center;
     background: {
         color: $primary;
     }
-    border:none;
+    border: none;
     border-radius: 8px;
     padding: 14px 18px;
     color: $light;
@@ -59,26 +55,50 @@ img{
     overflow-wrap: break-word;
 }
 
-#main{
+#main {
     display: flex;
     flex-direction: row;
 
-    aside{
-    
-        width: 30%;  
+    aside {
+        /*width: 30%;*/
         border-right: 5px solid $secondary;
-        padding:1rem;
+        padding: 1rem;
         display: flex;
         flex-direction: column;
-        img{
-            height: 50px;
-            width: 50px;
+        flex-basis: 30%;
+        flex-grow: 0;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        img {
+            height: 300px;
+            width: 300px;
+        }
+        button {
+            i {
+                color: $secondary;
+                font-size: 1.5em;
+                padding: 0rem;
+                margin: 0rem;
+            }
+            height: 40px;
+            width: 40px;
+            background-color: $light;
+            border: $secondary solid 2px;
+            border-radius: 50%;
+            box-shadow: inset -2px -2px 4px 3px $secondary;
+            padding: 0rem;
+            margin: 1rem;
+            text-align: center;
+            &.cerrar {
+                align-self: flex-end;
+            }
         }
     }
-    #aside-reproductor{
+    #aside-reproductor {
         display: none;
     }
-    article{
+    article {
         flex-grow: 1;
     }
 }

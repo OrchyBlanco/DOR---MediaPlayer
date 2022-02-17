@@ -2,94 +2,102 @@ var audio;
 
 Vue.component("Reproductor", {
   props: {
-    datos:Object
+    datos: Object
   },
-   
+
   template://html
-  `
-  
-  <aside id="aside-reproductor">
-  <button @click="hiddeAside">X</button>
-  <div id="reproductor">
-    
-    <button @click="playSong">Play</button>
-    <button @click="pauseSong">Pause</button>
-    <button @click="stopSong">STOP</button>
-    <img :src="datos.img">
-  </div>
-  <div id="datos">
-    <h1>TITULO: {{datos.name}}</h1>
-    <h2>AUTOR: {{datos.author}}</h2>
-    <p>DESCRIPCION: {{datos.descripcion}}</p>    
-  </div>
-</aside>
-  `,
-methods: {
-    hiddeAside: function(){
+    `
+    <aside id="aside-reproductor">
+      <button class="cerrar" @click="hiddeAside"><i class="bi bi-x"></i></button>
+      <div id="reproductor">
+        <div class="caratula"><img :src="datos.img"></div>
+        <div>
+        <button @click="forward15sec"><i class="bi bi-arrow-clockwise"></i></button>
+        <button @click="playSong"><i class="bi bi-play-fill"></i></button>
+        <button @click="pauseSong"><i class="bi bi-pause-fill"></i></button>
+        <button @click="stopSong"><i class="bi bi-stop-fill"></i></button>
+        <button @click="backward15sec"><i class="bi bi-arrow-counterclockwise"></i></button>
+        </div>
+      </div>
+      <div id="datos">
+        <h1>TITULO: {{datos.name}}</h1>
+        <h2>AUTOR: {{datos.author}}</h2>
+        <p>DESCRIPCION: {{datos.descripcion}}</p>
+      </div>
+    </aside>
+    `,
+  methods: {
+    hiddeAside: function () {
       $("#aside-reproductor").hide();
-      if(audio){
+      if (audio) {
         audio.pause();
-        audio.currentTime=0;
-      }      
+        audio.currentTime = 0;
+      }
     },
-    playSong:function() {
-        audio.play();
-        
-       },
-    pauseSong:function(){
+    playSong: function () {
+      audio.play();
+
+    },
+    pauseSong: function () {
       audio.pause();
     },
-    stopSong:function(){
+    stopSong: function () {
       audio.pause();
-      audio.currentTime=0;
+      audio.currentTime = 0;
+    },
+    forward15sec: function () {
+      audio.currentTime += 15;
+    },
+    backward15sec: function () {
+      audio.currentTime -= 15;
     }
-}
+  }
 
 });
 
 Vue.component("Cancion", {
   props: ["cancion"],
   template: "#cancion",
-  data: function(){
-      return {
-        name: null,
-        author: null,
-        descripcion: null,
-        img: null,
-        media: null
-      }
+  data: function () {
+    return {
+      name: null,
+      author: null,
+      descripcion: null,
+      img: null,
+      media: null
+    }
   },
-  methods: {    
-    selectSong:function(){
-      this.$emit('selectSong',{
+  methods: {
+    selectSong: function () {
+      this.$emit('selectSong', {
         name: this.cancion.name,
         author: this.cancion.author,
         descripcion: this.cancion.descripcion,
         img: this.cancion.img,
         media: this.cancion.media
       })
-      if(audio){
+      if (audio) {
         audio.pause();
-        audio.currentTime=0;
+        audio.currentTime = 0;
       }
-      audio=new Audio(this.cancion.media);
+      audio = new Audio(this.cancion.media);
       audio.play();
       $("#aside-reproductor").show();
-      
+
       ;
-    }   
+    }
   },
 });
 
 Vue.component("Musica", {
   props: ["musica"],
-  data(){
-    return{
-        cancion_seleccionada:null
-    }        
-},
+  data() {
+    return {
+      cancion_seleccionada: null
+    }
+  },
   template://html
-   `
+    `
     <article>
         <Cancion
         v-for="(cancion,index) in musica" 
@@ -101,8 +109,8 @@ Vue.component("Musica", {
         <span class="d-none">Cancion seleccionada(COMPONENTE MUSICA): {{cancion_seleccionada}}</span>
     </article>
     `,
-  updated: function(){
-    this.$emit("selectMusica",this.cancion_seleccionada);
+  updated: function () {
+    this.$emit("selectMusica", this.cancion_seleccionada);
   }
 });
 
@@ -145,9 +153,9 @@ const app = new Vue({
       media: null,
     },
   },
-  
+
   template://html
-   `
+    `
     <div id="main">    
     <Reproductor
     :datos="itemSeleccionado"
