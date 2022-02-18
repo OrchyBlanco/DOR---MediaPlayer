@@ -1,4 +1,4 @@
-var audio;
+var media;
 
 Vue.component("Reproductor", {
   props: {
@@ -13,8 +13,7 @@ Vue.component("Reproductor", {
         <div class="caratula"><img :src="datos.img"></div>
         <div>
         <button @click="forward15sec"><i class="bi bi-arrow-clockwise"></i></button>
-        <button @click="playSong"><i class="bi bi-play-fill"></i></button>
-        <button @click="pauseSong"><i class="bi bi-pause-fill"></i></button>
+        <button id="play" @click="playSong"><i class="bi bi-play-fill"></i></button>
         <button @click="stopSong"><i class="bi bi-stop-fill"></i></button>
         <button @click="backward15sec"><i class="bi bi-arrow-counterclockwise"></i></button>
         </div>
@@ -29,27 +28,30 @@ Vue.component("Reproductor", {
   methods: {
     hiddeAside: function () {
       $("#aside-reproductor").hide();
-      if (audio) {
-        audio.pause();
-        audio.currentTime = 0;
+      if (media) {
+        media.pause();
+        media.currentTime = 0;
       }
     },
     playSong: function () {
-      audio.play();
+      if(media.paused){
+        media.play();
+        $("#play>i").replaceWith('<i class="bi bi-pause-fill"></i>');
+      }else{
+        media.pause()
+        $("#play>i").replaceWith('<i class="bi bi-play-fill"></i>');
+      }
 
     },
-    pauseSong: function () {
-      audio.pause();
-    },
     stopSong: function () {
-      audio.pause();
-      audio.currentTime = 0;
+      media.pause();
+      media.currentTime = 0;
     },
     forward15sec: function () {
-      audio.currentTime += 15;
+      media.currentTime += 15;
     },
     backward15sec: function () {
-      audio.currentTime -= 15;
+      media.currentTime -= 15;
     }
   }
 
@@ -76,14 +78,14 @@ Vue.component("Cancion", {
         img: this.cancion.img,
         media: this.cancion.media
       })
-      if (audio) {
-        audio.pause();
-        audio.currentTime = 0;
+      if (media) {
+        media.pause();
+        media.currentTime = 0;
       }
-      audio = new Audio(this.cancion.media);
-      audio.play();
+      media = new Audio(this.cancion.media);
+      media.play();
       $("#aside-reproductor").show();
-
+      $("#aside-reproductor").css("display","flex");
       ;
     }
   },
