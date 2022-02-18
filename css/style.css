@@ -79,10 +79,27 @@ img {
 }
 
 #main aside {
-  width: 30%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border-right: 5px solid #f25f4c;
   padding: 1rem;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #main aside img {
@@ -96,8 +113,8 @@ img {
   background-color: #fffffe;
   border: #f25f4c solid 2px;
   border-radius: 50%;
-  -webkit-box-shadow: inset -2px -2px 4px 3px #f25f4c;
-          box-shadow: inset -2px -2px 4px 3px #f25f4c;
+  -webkit-box-shadow: inset -4px -2px 4px 0px #f25f4c;
+          box-shadow: inset -4px -2px 4px 0px #f25f4c;
   padding: 0rem;
   margin: 1rem;
   text-align: center;
@@ -112,7 +129,8 @@ img {
 
 #main aside button.cerrar {
   -ms-flex-item-align: end;
-      align-self: flex-end;
+      -ms-grid-row-align: end;
+      align-self: end;
 }
 
 #main #aside-reproductor {
