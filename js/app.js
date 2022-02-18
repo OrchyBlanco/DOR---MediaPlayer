@@ -106,7 +106,7 @@ Vue.component("Musica", {
         @selectSong="cancion_seleccionada=$event"
         >
         </Cancion>
-        <span class="d-none">Cancion seleccionada(COMPONENTE MUSICA): {{cancion_seleccionada}}</span>
+         <span class="d-none">Cancion seleccionada(COMPONENTE MUSICA): {{cancion_seleccionada}}</span>
     </article>
     `,
   updated: function () {
@@ -184,13 +184,15 @@ const app = new Vue({
     <div id="main">    
     <Reproductor
     :datos="itemSeleccionado"
+    
     ></Reproductor>
       
         <Musica 
         :musica="musica"
         @selectMusica="itemSeleccionado=$event"
+        
         ></Musica>   
-        <span class="d-none">Cancion seleccionada(Root): {{this.itemSeleccionado}}</span>
+         <!--<span class="d-none">Cancion seleccionada(Root): {{this.itemSeleccionado}}</span>-->
         
     </div>
     `,
