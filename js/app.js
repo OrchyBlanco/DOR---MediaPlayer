@@ -64,6 +64,92 @@ Vue.component("Reproductor", {
 
 });
 
+Vue.component("CVideo",{
+  props: ["video"],
+  template://html
+  `
+  <section class="card mb-12 m-5 video">
+        <div class="row g-0 p-2">
+          <div class="col-2">
+              <img :src="video.img" class="img-fluid rounded " >
+          </div>
+          <div class="col-8">
+              <div class="card-body">
+              <h4 class="card-title">{{video.name}}</h4>
+              <p class="card-text"><strong>Autor:</strong> {{video.author}}</p>
+              <p class="card-text"><strong>Descripcion:</strong> {{video.descripcion}}</p>
+              </div>            
+          </div>
+          <div class="col-2 d-flex align-items-center">
+          
+            <button class="col-10 btn-custom" @click="selectVideo">
+            <span>Reproducir <i class="bi  bi-camera-video" ></i></span>
+            </button>        
+          </div>
+        </div>
+    </section>
+  `
+  ,
+  data: function () {
+    return {
+      name: null,
+      author: null,
+      descripcion: null,
+      img: null,
+      media: null,
+      vtt:null
+    }
+  },
+  methods: {
+    selectVideo: function () {
+      this.$emit('selectVideo', {
+        name: this.video.name,
+        author: this.video.author,
+        descripcion: this.video.descripcion,
+        img: this.video.img,
+        media: this.video.media,
+        vtt: this.video.vtt
+      })
+      if (media) {
+        media.pause();
+        media.currentTime = 0;
+      }
+      media =  document.createElement("video");
+      media.setAttribute('src', this.video.media);
+      
+
+      media.play();
+      $("#aside-reproductor").show();
+      $("#aside-reproductor").css("display","flex");
+    }
+  }
+})
+
+Vue.component("Videos",{
+  props:["videos"],
+  data(){
+    return{
+      video_seleccionado:null
+    }
+  },
+  template://html
+  `
+    <article>
+      <CVideo
+      v-for="(video,index) in videos" 
+      :key="index" 
+      :video="video" 
+      @selectVideo="video_seleccionado=$event"
+      >
+      </CVideo>
+      <span class="d-none">VIDEO seleccionada(COMPONENTE VIDEOSSS): {{video_seleccionado}}</span>
+    </article>
+  `,
+  updated:function () {
+    this.$emit("selectVideo", this.video_seleccionado)
+  }
+});
+
 Vue.component("Cancion", {
   props: ["cancion"],
   template: "#cancion",
@@ -154,28 +240,64 @@ const app = new Vue({
         author: "brandonTheDM",
         descripcion: "un corto de tiktok",
         img: null,
-        media: "./media/video/dungeon master therapy.mp4"
+        media: "./media/video/dungeon master therapy.mp4",
+        vtt: null
       },
       {
         name: "hay calima",
         author: "desconocido",
         descripcion: "parodia exagerando la calima en canarias",
         img: null,
-        media: "./media/video/hay calima.mp4"
+        media: "./media/video/hay calima.mp4",
+        vtt: null
       },
       {
         name: "a mas de 800m altura",
         author: "desconocido",
         descripcion: "un corto de algien subiendo una torre",
         img: null,
-        media: "./media/video/a mas de 800m altura.mp4"
+        media: "./media/video/a mas de 800m altura.mp4",
+        vtt: null
       },
       {
         name: "seguidor de master lee",
         author: "theVandaLord",
         descripcion: "un corto de tiktok",
         img: null,
-        media: "./media/video/seguidor de master lee.mp4"
+        media: "./media/video/seguidor de master lee.mp4",
+        vtt: null
+      },
+      {
+        name: "Dungeon master therapy parte 3",
+        author: "brandonTheDM",
+        descripcion: "un corto de tiktok",
+        img: null,
+        media: "./media/video/dungeon master therapy.mp4",
+        vtt: null
+      },
+      {
+        name: "hay calima",
+        author: "desconocido",
+        descripcion: "parodia exagerando la calima en canarias",
+        img: null,
+        media: "./media/video/hay calima.mp4",
+        vtt: null
+      },
+      {
+        name: "a mas de 800m altura",
+        author: "desconocido",
+        descripcion: "un corto de algien subiendo una torre",
+        img: null,
+        media: "./media/video/a mas de 800m altura.mp4",
+        vtt: null
+      },
+      {
+        name: "seguidor de master lee",
+        author: "theVandaLord",
+        descripcion: "un corto de tiktok",
+        img: null,
+        media: "./media/video/seguidor de master lee.mp4",
+        vtt: null
       },
     ],
     itemSeleccionado: {
@@ -194,12 +316,18 @@ const app = new Vue({
     :datos="itemSeleccionado"
     
     ></Reproductor>
-      
+      <!--
         <Musica 
         :musica="musica"
         @selectMusica="itemSeleccionado=$event"
         
-        ></Musica>   
+        ></Musica>  
+        --> 
+        <Videos 
+        :videos="videos"
+        @selectVideo="itemSeleccionado=$event"
+        
+        ></Videos> 
          <!--<span class="d-none">Cancion seleccionada(Root): {{this.itemSeleccionado}}</span>-->
         
     </div>
