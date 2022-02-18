@@ -13,8 +13,8 @@ Vue.component("Reproductor", {
         <div class="caratula"><img :src="datos.img"></div>
         <div>
         <button @click="backward15sec"><i class="bi bi-arrow-counterclockwise"></i></button>
-        <button id="play" @click="playSong"><i class="bi bi-play-fill"></i></button>
-        <button @click="stopSong"><i class="bi bi-stop-fill"></i></button>
+        <button id="play_pause" data-estado="play" @click="playPauseMedia"><i class="bi bi-pause-fill"></i></button>
+        <button @click="stopMedia"><i class="bi bi-stop-fill"></i></button>
         <button @click="forward15sec"><i class="bi bi-arrow-clockwise"></i></button>
         </div>
       </div>
@@ -33,18 +33,25 @@ Vue.component("Reproductor", {
         media.currentTime = 0;
       }
     },
-    playSong: function () {
-      if(media.paused){
-        media.play();
-        $("#play>i").replaceWith('<i class="bi bi-pause-fill"></i>');
-      }else{
-        media.pause()
-        $("#play>i").replaceWith('<i class="bi bi-play-fill"></i>');
+    playPauseMedia: function () {
+      if ($("#play_pause").data('estado') === 'play') {
+        $("#play_pause>i").replaceWith('<i class="bi bi-play-fill"></i>');
+        media.pause();
+        $("#play_pause").data('estado', 'pause')
+      } else {
+        if ($("#play_pause").data('estado') === 'pause') {
+          $("#play_pause>i").replaceWith('<i class="bi bi-pause-fill"></i>');
+          media.play();
+          $("#play_pause").data('estado', 'play')
+        }
       }
-
     },
-    stopSong: function () {
-      media.pause();
+    stopMedia: function () {
+      if ($("#play_pause").data('estado') === 'play') {
+        $("#play_pause>i").replaceWith('<i class="bi bi-play-fill"></i>');
+        media.pause();
+        $("#play_pause").data('estado', 'pause')
+      }
       media.currentTime = 0;
     },
     forward15sec: function () {
@@ -85,7 +92,7 @@ Vue.component("Cancion", {
       media = new Audio(this.cancion.media);
       media.play();
       $("#aside-reproductor").show();
-      $("#aside-reproductor").css("display","flex");
+      $("#aside-reproductor").css("display", "flex");
     }
   },
 });
@@ -145,29 +152,29 @@ const app = new Vue({
       {
         name: "Dungeon master therapy parte 3",
         author: "brandonTheDM",
-        descripcion: "un corto de tiktok", 
-        img: null, 
+        descripcion: "un corto de tiktok",
+        img: null,
         media: "./media/video/dungeon master therapy.mp4"
       },
       {
         name: "hay calima",
         author: "desconocido",
-        descripcion: "parodia exagerando la calima en canarias", 
-        img: null, 
+        descripcion: "parodia exagerando la calima en canarias",
+        img: null,
         media: "./media/video/hay calima.mp4"
       },
       {
         name: "a mas de 800m altura",
         author: "desconocido",
-        descripcion: "un corto de algien subiendo una torre", 
-        img: null, 
+        descripcion: "un corto de algien subiendo una torre",
+        img: null,
         media: "./media/video/a mas de 800m altura.mp4"
       },
       {
         name: "seguidor de master lee",
         author: "theVandaLord",
-        descripcion: "un corto de tiktok", 
-        img: null, 
+        descripcion: "un corto de tiktok",
+        img: null,
         media: "./media/video/seguidor de master lee.mp4"
       },
     ],
