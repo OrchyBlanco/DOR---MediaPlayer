@@ -69,6 +69,7 @@ img {
         justify-content: space-between;
         align-items: center;
         text-align: center;
+        display:flex;
         img {
             height: 300px;
             width: 300px;
@@ -85,7 +86,7 @@ img {
             background-color: $light;
             border: $secondary solid 2px;
             border-radius: 50%;
-            box-shadow: inset -2px -2px 4px 3px $secondary;
+            box-shadow: inset -4px -2px 4px 0px $secondary;;
             padding: 0rem;
             margin: 1rem;
             text-align: center;

@@ -12,16 +12,16 @@ Vue.component("Reproductor", {
       <div id="reproductor">
         <div class="caratula"><img :src="datos.img"></div>
         <div>
-        <button @click="forward15sec"><i class="bi bi-arrow-clockwise"></i></button>
+        <button @click="backward15sec"><i class="bi bi-arrow-counterclockwise"></i></button>
         <button id="play" @click="playSong"><i class="bi bi-play-fill"></i></button>
         <button @click="stopSong"><i class="bi bi-stop-fill"></i></button>
-        <button @click="backward15sec"><i class="bi bi-arrow-counterclockwise"></i></button>
+        <button @click="forward15sec"><i class="bi bi-arrow-clockwise"></i></button>
         </div>
       </div>
       <div id="datos">
-        <h1>TITULO: {{datos.name}}</h1>
-        <h2>AUTOR: {{datos.author}}</h2>
-        <p>DESCRIPCION: {{datos.descripcion}}</p>
+        <h2>{{datos.name}}</h2>
+        <h3>{{datos.author}}</h3>
+        <p> {{datos.descripcion}}</p>
       </div>
     </aside>
     `,
@@ -86,7 +86,6 @@ Vue.component("Cancion", {
       media.play();
       $("#aside-reproductor").show();
       $("#aside-reproductor").css("display","flex");
-      ;
     }
   },
 });
