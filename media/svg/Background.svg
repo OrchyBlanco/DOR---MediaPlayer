@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+  <rect width="50" height="50" style="fill: rgb(15, 14, 23);" x="0" y="0"/>
+  <g style="" transform="matrix(0, 1.000001, -1.000001, 0, 49.70602, -0.294003)">
+    <path style="fill: none; stroke: rgb(28, 26, 45);" d="M 0 25 C 0 25 9 15 25 25 C 41 35 50 25 50 25"/>
+    <path style="fill: none; stroke: rgb(28, 26, 45);" d="M 0 37.5 C 0 37.5 11 46.888 25 37.5 C 39 28.112 50 37.5 50 37.5"/>
+    <path style="fill: none; stroke: rgb(28, 26, 45);" d="M 0 12.5 C 0 12.5 5.262 23.211 25 12.5 C 44.738 1.789 50 12.5 50 12.5"/>
+  </g>
+  <g style="" transform="matrix(1.000001, 0, 0, 1.000001, -0.000021, -0.000033)">
+    <path style="fill: none; stroke: rgb(28, 26, 45);" d="M 0 25 C 0 25 9 15 25 25 C 41 35 50 25 50 25"/>
+    <path style="fill: none; stroke: rgb(28, 26, 45);" d="M 0 37.5 C 0 37.5 11 46.888 25 37.5 C 39 28.112 50 37.5 50 37.5"/>
+    <path style="fill: none; stroke: rgb(28, 26, 45);" d="M 0 12.5 C 0 12.5 5.262 23.211 25 12.5 C 44.738 1.789 50 12.5 50 12.5"/>
+  </g>
+</svg>

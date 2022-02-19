@@ -13,7 +13,7 @@ Vue.component("Reproductor", {
         <div class="caratula"><img :src="datos.img"></div>
         <div>
         <button @click="backward15sec"><i class="bi bi-arrow-counterclockwise"></i></button>
-        <button id="play_pause" data-estado="play" @click="playPauseMedia"><i class="bi bi-pause-fill"></i></button>
+        <button id="play_pause" data-estado="pause" @click="playPauseMedia"><i class="bi bi-pause-fill"></i></button>
         <button @click="stopMedia"><i class="bi bi-stop-fill"></i></button>
         <button @click="forward15sec"><i class="bi bi-arrow-clockwise"></i></button>
         </div>
@@ -239,66 +239,35 @@ const app = new Vue({
         name: "Dungeon master therapy parte 3",
         author: "brandonTheDM",
         descripcion: "un corto de tiktok",
-        img: null,
-        media: "./media/video/dungeon master therapy.mp4",
+        img: "./media/video/dungeonMaster/dungeon master terapy_thumbnail.jpg",
+        media: "./media/video/dungeonMaster/dungeon master terapy.mp4",
         vtt: null
       },
       {
         name: "hay calima",
         author: "desconocido",
         descripcion: "parodia exagerando la calima en canarias",
-        img: null,
-        media: "./media/video/hay calima.mp4",
+        img: "./media/video/haycalima/hay calima_thumbnail.jpg",
+        media: "./media/video/haycalima/hay calima.mp4",
         vtt: null
       },
       {
         name: "a mas de 800m altura",
         author: "desconocido",
         descripcion: "un corto de algien subiendo una torre",
-        img: null,
-        media: "./media/video/a mas de 800m altura.mp4",
+        img: "./media/video/masde800/mas de 800m altura_thumbnailt.jpg",
+        media: "./media/video/masde800/mas de 800m altura.mp4",
         vtt: null
       },
       {
         name: "seguidor de master lee",
         author: "theVandaLord",
         descripcion: "un corto de tiktok",
-        img: null,
-        media: "./media/video/seguidor de master lee.mp4",
+        img: "./media/video/masterlee/seguidor de master lee_thumbnail.jpg",
+        media: "./media/video/masterlee/seguidor de master lee.mp4",
         vtt: null
       },
-      {
-        name: "Dungeon master therapy parte 3",
-        author: "brandonTheDM",
-        descripcion: "un corto de tiktok",
-        img: null,
-        media: "./media/video/dungeon master therapy.mp4",
-        vtt: null
-      },
-      {
-        name: "hay calima",
-        author: "desconocido",
-        descripcion: "parodia exagerando la calima en canarias",
-        img: null,
-        media: "./media/video/hay calima.mp4",
-        vtt: null
-      },
-      {
-        name: "a mas de 800m altura",
-        author: "desconocido",
-        descripcion: "un corto de algien subiendo una torre",
-        img: null,
-        media: "./media/video/a mas de 800m altura.mp4",
-        vtt: null
-      },
-      {
-        name: "seguidor de master lee",
-        author: "theVandaLord",
-        descripcion: "un corto de tiktok",
-        img: null,
-        media: "./media/video/seguidor de master lee.mp4",
-        vtt: null
-      },
+      
     ],
     itemSeleccionado: {
       name: null,
@@ -316,18 +285,40 @@ const app = new Vue({
     :datos="itemSeleccionado"
     
     ></Reproductor>
-      <!--
-        <Musica 
+    <article>  
+    <ul class="nav nav-pills justify-content-center m-5" id="pills-tab" role="tablist">
+     <li class="nav-item" role="presentation">
+        <button  class="nav-link active"  data-bs-toggle="pill" data-bs-target="#pills-musica" type="button"
+                role="tab" aria-controls="pills-musica" aria-selected="true">musica</button>
+      </li>
+      <li class="nav-item" role="presentation">
+      <button class="nav-link " id="pills-video-tab btn btn-video" data-bs-toggle="pill" data-bs-target="#pills-video" type="button"
+              role="tab" aria-controls="pills-video" aria-selected="true">Video</button>
+    </li>
+    
+    
+  </ul>
+  
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-musica" role="tabpanel" aria-labelledby="pills-musica-tab">
+      <Musica 
         :musica="musica"
         @selectMusica="itemSeleccionado=$event"
+      
+      ></Musica> 
+    </div>
+    <div class="tab-pane fade" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab">
+    <Videos 
+      :videos="videos"
+      @selectVideo="itemSeleccionado=$event"
         
-        ></Musica>  
-        --> 
-        <Videos 
-        :videos="videos"
-        @selectVideo="itemSeleccionado=$event"
+    ></Videos> 
+    </div>
+  </div>
+  </article>
+         
         
-        ></Videos> 
+        
          <!--<span class="d-none">Cancion seleccionada(Root): {{this.itemSeleccionado}}</span>-->
         
     </div>

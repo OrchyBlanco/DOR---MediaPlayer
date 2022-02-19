@@ -4,7 +4,8 @@
 }
 
 body {
-  background-color: #0f0e17;
+  background: url(../media/svg/Background.svg) left top repeat;
+  background-size: 200px 200px;
   color: #a7a9be;
 }
 
@@ -24,15 +25,15 @@ nav {
 }
 
 nav img {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   -webkit-box-flex: 0;
       -ms-flex-positive: 0;
           flex-grow: 0;
 }
 
 nav h1 {
-  font-size: 72pt;
+  font-size: 42pt;
   -webkit-box-flex: 0;
       -ms-flex-positive: 0;
           flex-grow: 0;
@@ -137,9 +138,17 @@ img {
   display: none;
 }
 
+#main #aside-reproductor #btn {
+  background-color: #ff8906;
+}
+
 #main article {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 /*# sourceMappingURL=style.css.map */

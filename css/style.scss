@@ -10,7 +10,8 @@ $text: #a7a9be;
     box-sizing: border-box;
 }
 body {
-    background-color: $dark;
+    background:url(../media/svg/Background.svg) left top repeat;
+    background-size: 200px 200px;
     color: $text;
 }
 
@@ -22,12 +23,12 @@ nav {
     margin: 1.25rem 0 0 0;
     padding: 1rem;
     img {
-        width: 200px;
-        height: 200px;
+        width: 100px;
+        height: 100px;
         flex-grow: 0;
     }
     h1 {
-        font-size: 72pt;
+        font-size: 42pt;
         flex-grow: 0;
     }
 }
@@ -56,8 +57,8 @@ img {
 }
 
 #main {
-    display: flex;
-    flex-direction: row;
+   display: flex;
+   flex-direction: row;
 
     aside {
         border-right: 5px solid $secondary;
@@ -97,8 +98,12 @@ img {
     }
     #aside-reproductor {
         display: none;
+        #btn{
+            background-color:$primary;
+        }
     }
     article {
         flex-grow: 1;
+        flex-direction: column;
     }
 }
