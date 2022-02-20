@@ -92,6 +92,10 @@ img {
           flex-direction: row;
 }
 
+#main ul {
+  height: 120px;
+}
+
 #main aside {
   border-right: 5px solid #f25f4c;
   padding: 1rem;
@@ -114,11 +118,22 @@ img {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+  height: 80vh;
 }
 
-#main aside img {
-  height: 300px;
-  width: 300px;
+#main aside #caratula {
+  height: 400px;
+  width: 350px;
+}
+
+#main aside #caratula img {
+  height: 95%;
+  width: 95%;
+}
+
+#main aside #caratula video {
+  height: 95%;
+  width: 95%;
 }
 
 #main aside button {
@@ -176,12 +191,14 @@ img {
           flex-direction: column;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
   color: #fffffe;
   background-color: #ff8906;
 }
 
-.nav-link:focus, .nav-link:hover {
+.nav-link:focus,
+.nav-link:hover {
   color: #fffffe;
   background-color: #ff8906;
 }

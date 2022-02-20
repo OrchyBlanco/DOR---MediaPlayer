@@ -12,7 +12,8 @@ Vue.component("Reproductor", {
       
       <button class="cerrar" @click="hiddeAside"><i class="bi bi-x"></i></button>
       <div id="reproductor">
-        <div class="caratula"><img :src="datos.img"></div>
+        <div id="caratula">
+        </div>
         <div>
         <button @click="backward15sec"><i class="bi bi-arrow-counterclockwise"></i></button>
         <button id="play_pause" data-estado="play" @click="playPauseMedia"><i class="bi bi-pause-fill"></i></button>
@@ -62,15 +63,18 @@ Vue.component("Reproductor", {
     },
     backward15sec: function () {
       media.currentTime -= 15;
+    },
+    volumenLow: function () {
+      media.volumen = 50;
     }
   }
 
 });
 
-Vue.component("CVideo",{
+Vue.component("CVideo", {
   props: ["video"],
   template://html
-  `
+    `
   <section class="card mb-12 m-5 video">
         <div class="row g-0 p-2">
           <div class="col-2">
@@ -100,7 +104,7 @@ Vue.component("CVideo",{
       descripcion: null,
       img: null,
       media: null,
-      vtt:null
+      vtt: null
     }
   },
   methods: {
@@ -117,28 +121,29 @@ Vue.component("CVideo",{
         media.pause();
         media.currentTime = 0;
       }
-      media =  document.createElement("video");
+      media = document.createElement("video");
       media.setAttribute('src', this.video.media);
-      
+      $("#caratula").empty();
+      $("#caratula").append(media);
 
       media.play();
       $("#aside-reproductor").show(1000);
-      $("#aside-reproductor").css("display","flex");
+      $("#aside-reproductor").css("display", "flex");
       $("#play_pause>i").replaceWith('<i class="bi bi-pause-fill"></i>');
       $("#play_pause").data('estado', 'play');
     }
   }
 })
 
-Vue.component("Videos",{
-  props:["videos"],
-  data(){
-    return{
-      video_seleccionado:null
+Vue.component("Videos", {
+  props: ["videos"],
+  data() {
+    return {
+      video_seleccionado: null
     }
   },
   template://html
-  `
+    `
     <article>
       <CVideo
       v-for="(video,index) in videos" 
@@ -150,7 +155,7 @@ Vue.component("Videos",{
       <span class="d-none">VIDEO seleccionada(COMPONENTE VIDEOSSS): {{video_seleccionado}}</span>
     </article>
   `,
-  updated:function () {
+  updated: function () {
     this.$emit("selectVideo", this.video_seleccionado)
   }
 });
@@ -186,6 +191,8 @@ Vue.component("Cancion", {
       $("#aside-reproductor").css("display", "flex");
       $("#play_pause>i").replaceWith('<i class="bi bi-pause-fill"></i>');
       $("#play_pause").data('estado', 'play');
+      $("#caratula").empty();
+      $("#caratula").append('<img src="'+this.cancion.img+'">');
     }
   },
 });
@@ -274,7 +281,7 @@ const app = new Vue({
         media: "./media/video/masterlee/seguidor de master lee.mp4",
         vtt: null
       },
-      
+
     ],
     itemSeleccionado: {
       name: null,
