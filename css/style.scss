@@ -6,6 +6,7 @@ $black: #000000;
 $light: #fffffe;
 $text: #a7a9be;
 
+
 * {
     box-sizing: border-box;
 }
@@ -43,7 +44,7 @@ img {
     flex-direction: column;
     align-items: center;
     background: {
-        color: $primary;
+        color: $primary ;
     }
     border: none;
     border-radius: 8px;
@@ -128,5 +129,24 @@ img {
     article {
         flex-grow: 1;
         flex-direction: column;
+
     }
+
+
+ 
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    color: $light;
+    background-color: $primary;
+}
+.nav-link:focus, .nav-link:hover{
+    color:$light;
+    background-color: $primary;
+    
+}
+.nav-link:active{
+    background-color:$dark;
+        border:3px solid $primary;
+        color:$primary;
 }

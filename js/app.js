@@ -8,6 +8,8 @@ Vue.component("Reproductor", {
   template://html
     `
     <aside id="aside-reproductor">
+
+      
       <button class="cerrar" @click="hiddeAside"><i class="bi bi-x"></i></button>
       <div id="reproductor">
         <div class="caratula"><img :src="datos.img"></div>
@@ -16,6 +18,7 @@ Vue.component("Reproductor", {
         <button id="play_pause" data-estado="play" @click="playPauseMedia"><i class="bi bi-pause-fill"></i></button>
         <button @click="stopMedia"><i class="bi bi-stop-fill"></i></button>
         <button @click="forward15sec" data-bs-toggle="tooltip" data-bs-placement="right" title="Avanzar 15 segundos" ><i class="bi bi-arrow-clockwise"></i></button>
+        <button class="volumen"><i class="bi bi-volume-down-fill"></i></button>
         </div>
       </div>
       <div id="datos">
@@ -290,14 +293,14 @@ const app = new Vue({
     
     ></Reproductor>
     <article>  
-    <ul class="nav nav-pills justify-content-center m-5" id="pills-tab" role="tablist">
-     <li class="nav-item" role="presentation">
-        <button  class="nav-link active"  data-bs-toggle="pill" data-bs-target="#pills-musica" type="button"
-                role="tab" aria-controls="pills-musica" aria-selected="true">musica</button>
+    <ul class="nav nav-pills justify-content-center mt-5" id="pills-tab" role="tablist">
+     <li class="nav-item m-3" role="presentation">
+        <button  class="nav-link active btn-custom"  data-bs-toggle="pill" data-bs-target="#pills-musica" type="button"
+                role="tab" aria-controls="pills-musica" aria-selected="true">Musica</button>
       </li>
-      <li class="nav-item" role="presentation">
-      <button class="nav-link " id="pills-video-tab btn btn-video" data-bs-toggle="pill" data-bs-target="#pills-video" type="button"
-              role="tab" aria-controls="pills-video" aria-selected="true">Video</button>
+      <li class="nav-item m-3" role="presentation">
+      <button class="nav-link btn-custom " id="pills-video-tab btn btn-video" data-bs-toggle="pill" data-bs-target="#pills-video" type="button"
+              role="tab" aria-controls="pills-video" aria-selected="false">Video</button>
     </li>
     
     

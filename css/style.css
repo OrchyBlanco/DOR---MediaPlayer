@@ -175,4 +175,20 @@ img {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fffffe;
+  background-color: #ff8906;
+}
+
+.nav-link:focus, .nav-link:hover {
+  color: #fffffe;
+  background-color: #ff8906;
+}
+
+.nav-link:active {
+  background-color: #0f0e17;
+  border: 3px solid #ff8906;
+  color: #ff8906;
+}
 /*# sourceMappingURL=style.css.map */
