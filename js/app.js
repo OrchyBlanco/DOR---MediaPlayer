@@ -15,7 +15,7 @@ Vue.component("Reproductor", {
         <button @click="backward15sec"><i class="bi bi-arrow-counterclockwise"></i></button>
         <button id="play_pause" data-estado="play" @click="playPauseMedia"><i class="bi bi-pause-fill"></i></button>
         <button @click="stopMedia"><i class="bi bi-stop-fill"></i></button>
-        <button @click="forward15sec"><i class="bi bi-arrow-clockwise"></i></button>
+        <button @click="forward15sec" data-bs-toggle="tooltip" data-bs-placement="right" title="Avanzar 15 segundos" ><i class="bi bi-arrow-clockwise"></i></button>
         </div>
       </div>
       <div id="datos">
@@ -42,7 +42,7 @@ Vue.component("Reproductor", {
         if ($("#play_pause").data('estado') === 'pause') {
           $("#play_pause>i").replaceWith('<i class="bi bi-pause-fill"></i>');
           media.play();
-          $("#play_pause").data('estado', 'play')
+          $("#play_pause").data('estado', 'play');
         }
       }
     },
@@ -121,6 +121,8 @@ Vue.component("CVideo",{
       media.play();
       $("#aside-reproductor").show(1000);
       $("#aside-reproductor").css("display","flex");
+      $("#play_pause>i").replaceWith('<i class="bi bi-pause-fill"></i>');
+      $("#play_pause").data('estado', 'play');
     }
   }
 })
@@ -179,6 +181,8 @@ Vue.component("Cancion", {
       media.play();
       $("#aside-reproductor").show(1000);
       $("#aside-reproductor").css("display", "flex");
+      $("#play_pause>i").replaceWith('<i class="bi bi-pause-fill"></i>');
+      $("#play_pause").data('estado', 'play');
     }
   },
 });

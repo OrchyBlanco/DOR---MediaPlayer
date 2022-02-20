@@ -76,6 +76,12 @@ img {
           box-shadow: 0px 8px 16px 0px #ff8906, 0 6px 20px #ff8906;
 }
 
+.btn-custom:active {
+  background-color: #0f0e17;
+  border: 3px solid #ff8906;
+  color: #ff8906;
+}
+
 #main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -96,8 +102,8 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-preferred-size: 30%;
-      flex-basis: 30%;
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
   -webkit-box-flex: 0;
       -ms-flex-positive: 0;
           flex-grow: 0;
@@ -108,7 +114,6 @@ img {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  display: flex;
 }
 
 #main aside img {
