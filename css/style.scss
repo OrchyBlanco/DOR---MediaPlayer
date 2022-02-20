@@ -53,7 +53,15 @@ img {
     font-weight: 600;
     font-size: 1.5rem;
     line-height: 28px;
-    overflow-wrap: break-word;
+    
+    transition-duration: 0.4s;
+
+
+    &:hover{
+        border:3px solid $light;
+        
+        box-shadow: 0px 8px 16px 0px $primary, 0 6px 20px $primary;
+    }
 }
 
 #main {
@@ -87,10 +95,18 @@ img {
             background-color: $light;
             
             border-radius: 50%;
-            box-shadow: inset -4px -2px 4px 0px $secondary;;
+            box-shadow: inset -4px -2px 4px 0px $secondary;
             padding: 0rem;
             margin: 1rem;
             text-align: center;
+            transition-duration: 0.4s;
+            &:hover{
+                box-shadow: inset -4px -2px 4px 0px $light;
+                background-color:$secondary;
+                i{
+                    color:$light;
+                }
+            }
             &.cerrar {
                 align-self: end;
             }

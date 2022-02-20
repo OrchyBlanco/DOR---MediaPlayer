@@ -13,7 +13,7 @@ Vue.component("Reproductor", {
         <div class="caratula"><img :src="datos.img"></div>
         <div>
         <button @click="backward15sec"><i class="bi bi-arrow-counterclockwise"></i></button>
-        <button id="play_pause" data-estado="pause" @click="playPauseMedia"><i class="bi bi-pause-fill"></i></button>
+        <button id="play_pause" data-estado="play" @click="playPauseMedia"><i class="bi bi-pause-fill"></i></button>
         <button @click="stopMedia"><i class="bi bi-stop-fill"></i></button>
         <button @click="forward15sec"><i class="bi bi-arrow-clockwise"></i></button>
         </div>
@@ -27,7 +27,7 @@ Vue.component("Reproductor", {
     `,
   methods: {
     hiddeAside: function () {
-      $("#aside-reproductor").hide();
+      $("#aside-reproductor").hide(1000);
       if (media) {
         media.pause();
         media.currentTime = 0;
@@ -119,7 +119,7 @@ Vue.component("CVideo",{
       
 
       media.play();
-      $("#aside-reproductor").show();
+      $("#aside-reproductor").show(1000);
       $("#aside-reproductor").css("display","flex");
     }
   }
@@ -177,7 +177,7 @@ Vue.component("Cancion", {
       }
       media = new Audio(this.cancion.media);
       media.play();
-      $("#aside-reproductor").show();
+      $("#aside-reproductor").show(1000);
       $("#aside-reproductor").css("display", "flex");
     }
   },
