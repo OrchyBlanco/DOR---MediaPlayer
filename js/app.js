@@ -8,7 +8,7 @@ Vue.component("Reproductor", {
   template://html
     `
     <aside id="aside-reproductor">
-
+    <div id="Contindo">
       
       <button class="cerrar" @click="hiddeAside"><i class="bi bi-x"></i></button>
       <div id="reproductor">
@@ -26,6 +26,7 @@ Vue.component("Reproductor", {
         <h2>{{datos.name}}</h2>
         <h3>{{datos.author}}</h3>
         <p> {{datos.descripcion}}</p>
+      </div>
       </div>
     </aside>
     `,
@@ -121,16 +122,22 @@ Vue.component("CVideo", {
         media.pause();
         media.currentTime = 0;
       }
+      track = document.createElement('track');
+
+      
+
       media = document.createElement("video");
       media.setAttribute('src', this.video.media);
       $("#caratula").empty();
       $("#caratula").append(media);
+      media.append(track);
 
       media.play();
       $("#aside-reproductor").show(1000);
       $("#aside-reproductor").css("display", "flex");
       $("#play_pause>i").replaceWith('<i class="bi bi-pause-fill"></i>');
       $("#play_pause").data('estado', 'play');
+      
     }
   }
 })
