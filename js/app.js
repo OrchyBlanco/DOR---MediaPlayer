@@ -15,12 +15,11 @@ Vue.component("Reproductor", {
         <div id="caratula">
         </div>
         <div>
-        <button @click="backward15sec"><i class="bi bi-arrow-counterclockwise"></i></button>
+        <button @click="backward15sec" data-bs-toggle="tooltip" data-bs-placement="left" title="Retroceder 15 segundos"><i class="bi bi-arrow-counterclockwise"></i></button>
         <button id="play_pause" data-estado="play" @click="playPauseMedia"><i class="bi bi-pause-fill"></i></button>
         <button @click="stopMedia"><i class="bi bi-stop-fill"></i></button>
         <button @click="forward15sec" data-bs-toggle="tooltip" data-bs-placement="right" title="Avanzar 15 segundos" ><i class="bi bi-arrow-clockwise"></i></button>
-        <button class="volumen"><i class="bi bi-volume-down-fill"></i></button>
-        <input @change="volumenControl" type="range" min="0" max="1" value="0.5" step="0.1" id="mislider" ><span id="valor"></span>
+        <input @change="volumenControl" type="range" min="0" max="1" value="0.5" step="0.1" >
         </div>
       </div>
       <div id="datos">

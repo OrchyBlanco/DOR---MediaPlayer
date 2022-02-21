@@ -128,6 +128,8 @@ img {
                 align-self: end;
             }
         }
+
+        
     }
     #aside-reproductor {
         display: none;
@@ -156,3 +158,38 @@ img {
     border: 3px solid $primary;
     color: $primary;
 }
+
+
+input[type=range] {
+    
+    background:none;
+    -webkit-appearance: none;
+    
+    
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 7px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px $black;
+    background: $secondary;
+    border-radius: 7px;
+    border: 0px solid $black;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    
+    height: 26px;
+    width: 26px;
+    border-radius: 15px;
+    background-image: url(../media/svg/Sound_low.svg);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -10px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: $secondary;
+  }
