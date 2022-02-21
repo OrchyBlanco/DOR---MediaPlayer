@@ -8,24 +8,24 @@ Vue.component("Reproductor", {
   template://html
     `
     <aside id="aside-reproductor">
-
-      
-      <button class="cerrar" @click="hiddeAside"><i class="bi bi-x"></i></button>
-      <div id="reproductor">
-        <div id="caratula">
+      <div id="Contenido">
+        <button class="cerrar" @click="hiddeAside"><i class="bi bi-x"></i></button>
+        <div id="reproductor">
+          <div id="caratula">
+          </div>
+          <div>
+          <button @click="backward15sec" data-bs-toggle="tooltip" data-bs-placement="left" title="Retroceder 15 segundos"><i class="bi bi-arrow-counterclockwise"></i></button>
+          <button id="play_pause" data-estado="play" @click="playPauseMedia"><i class="bi bi-pause-fill"></i></button>
+          <button @click="stopMedia"><i class="bi bi-stop-fill"></i></button>
+          <button @click="forward15sec" data-bs-toggle="tooltip" data-bs-placement="right" title="Avanzar 15 segundos" ><i class="bi bi-arrow-clockwise"></i></button>
+          <input @change="volumenControl" type="range" min="0" max="1" value="0.5" step="0.1" >
+          </div>
         </div>
-        <div>
-        <button @click="backward15sec" data-bs-toggle="tooltip" data-bs-placement="left" title="Retroceder 15 segundos"><i class="bi bi-arrow-counterclockwise"></i></button>
-        <button id="play_pause" data-estado="play" @click="playPauseMedia"><i class="bi bi-pause-fill"></i></button>
-        <button @click="stopMedia"><i class="bi bi-stop-fill"></i></button>
-        <button @click="forward15sec" data-bs-toggle="tooltip" data-bs-placement="right" title="Avanzar 15 segundos" ><i class="bi bi-arrow-clockwise"></i></button>
-        <input @change="volumenControl" type="range" min="0" max="1" value="0.5" step="0.1" >
+        <div id="datos">
+          <h2>{{datos.name}}</h2>
+          <h3>{{datos.author}}</h3>
+          <p> {{datos.descripcion}}</p>
         </div>
-      </div>
-      <div id="datos">
-        <h2>{{datos.name}}</h2>
-        <h3>{{datos.author}}</h3>
-        <p> {{datos.descripcion}}</p>
       </div>
     </aside>
     `,
@@ -65,7 +65,7 @@ Vue.component("Reproductor", {
       media.currentTime -= 15;
     },
     volumenControl: function (event) {
-     media.volume=event.currentTarget.value;
+      media.volume = event.currentTarget.value;
     }
   }
 
@@ -121,16 +121,22 @@ Vue.component("CVideo", {
         media.pause();
         media.currentTime = 0;
       }
+      track = document.createElement('track');
+
+
+
       media = document.createElement("video");
       media.setAttribute('src', this.video.media);
       $("#caratula").empty();
       $("#caratula").append(media);
+      media.append(track);
 
       media.play();
       $("#aside-reproductor").show(1000);
       $("#aside-reproductor").css("display", "flex");
       $("#play_pause>i").replaceWith('<i class="bi bi-pause-fill"></i>');
       $("#play_pause").data('estado', 'play');
+
     }
   }
 })
@@ -192,7 +198,7 @@ Vue.component("Cancion", {
       $("#play_pause>i").replaceWith('<i class="bi bi-pause-fill"></i>');
       $("#play_pause").data('estado', 'play');
       $("#caratula").empty();
-      $("#caratula").append('<img src="'+this.cancion.img+'">');
+      $("#caratula").append('<img src="' + this.cancion.img + '">');
     }
   },
 });
