@@ -118,7 +118,8 @@ img {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  height: 80vh;
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 #main aside #caratula {

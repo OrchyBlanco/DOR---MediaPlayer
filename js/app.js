@@ -20,6 +20,7 @@ Vue.component("Reproductor", {
         <button @click="stopMedia"><i class="bi bi-stop-fill"></i></button>
         <button @click="forward15sec" data-bs-toggle="tooltip" data-bs-placement="right" title="Avanzar 15 segundos" ><i class="bi bi-arrow-clockwise"></i></button>
         <button class="volumen"><i class="bi bi-volume-down-fill"></i></button>
+        <input @change="volumenControl" type="range" min="0" max="1" value="0.5" step="0.1" id="mislider" ><span id="valor"></span>
         </div>
       </div>
       <div id="datos">
@@ -64,8 +65,8 @@ Vue.component("Reproductor", {
     backward15sec: function () {
       media.currentTime -= 15;
     },
-    volumenLow: function () {
-      media.volumen = 50;
+    volumenControl: function (event) {
+     media.volume=event.currentTarget.value;
     }
   }
 

@@ -85,7 +85,8 @@ img {
         justify-content: space-between;
         align-items: center;
         text-align: center;
-        height: 80vh;
+        
+        position: sticky;
         #caratula {
             height: 400px;
             width: 350px;
