@@ -1,0 +1,14 @@
+<svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M150 0.679993C67.4329 0.679993 0.5 67.6129 0.5 150.18C0.5 232.747 67.4329 299.68 150 299.68" fill="#F25F4C"/>
+<path opacity="0.6" fill-rule="evenodd" clip-rule="evenodd" d="M150 30.58C83.9473 30.58 30.4 84.1273 30.4 150.18C30.4 216.233 83.9473 269.78 150 269.78" fill="#F25F4C"/>
+<path opacity="0.7" fill-rule="evenodd" clip-rule="evenodd" d="M150 54.5C97.1571 54.5 54.3199 97.3371 54.3199 150.18C54.3199 203.023 97.1571 245.86 150 245.86" fill="#F25F4C"/>
+<path opacity="0.8" fill-rule="evenodd" clip-rule="evenodd" d="M150 73.636C107.726 73.636 73.4561 107.906 73.4561 150.18C73.4561 192.454 107.726 226.724 150 226.724" fill="#F25F4C"/>
+<path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M150 89.184C116.312 89.184 89.004 116.492 89.004 150.18C89.004 183.868 116.312 211.176 150 211.176" fill="white"/>
+<path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M150 120.28C132.825 120.28 118.904 133.935 118.904 150.778C118.904 167.621 132.825 181.276 150 181.276" fill="white"/>
+<path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M150 0.679993C232.567 0.679993 299.5 67.6129 299.5 150.18C299.5 232.747 232.567 299.68 150 299.68" fill="#A7A9BE"/>
+<path opacity="0.6" fill-rule="evenodd" clip-rule="evenodd" d="M150 30.58C216.053 30.58 269.6 84.1273 269.6 150.18C269.6 216.233 216.053 269.78 150 269.78" fill="#A7A9BE"/>
+<path opacity="0.7" fill-rule="evenodd" clip-rule="evenodd" d="M150 54.5C202.843 54.5 245.68 97.3371 245.68 150.18C245.68 203.023 202.843 245.86 150 245.86" fill="#A7A9BE"/>
+<path opacity="0.8" fill-rule="evenodd" clip-rule="evenodd" d="M150 73.636C192.274 73.636 226.544 107.906 226.544 150.18C226.544 192.454 192.274 226.724 150 226.724" fill="#A7A9BE"/>
+<path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M150 89.184C183.688 89.184 210.996 116.492 210.996 150.18C210.996 183.868 183.688 211.176 150 211.176" fill="white"/>
+<path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M150 120.28C167.175 120.28 181.096 133.935 181.096 150.778C181.096 167.621 167.175 181.276 150 181.276" fill="white"/>
+</svg>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="566.766 212.33 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <radialGradient id="grad1" cx="40%" cy="40%" r="60%">
+      <stop offset="0.75" style="stop-color:#FFFFFE;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#F25F4C;stop-opacity:0.5"/>
+    </radialGradient>
+  </defs>
+  <circle cx="650" cy="250" r="50" fill="url(#grad1)" style="" transform="matrix(1, 0, 0, 1, -33.234196, 12.330296)"/>
+  <rect x="523.708" y="204.32" width="7.574" height="84.672" rx="3" ry="3" style="fill: rgb(242, 95, 76);" transform="matrix(0.736445, -0.676497, 0.676497, 0.736445, 60.659679, 437.16217)"/>
+  <rect x="579.148" y="249.125" width="23.861" height="24.313" rx="3" ry="3" style="fill: rgb(242, 95, 76);"/>
+  <path d="M 752.778 395.106 Q 759.597 382.12 766.416 395.106 L 780.053 421.077 Q 786.872 434.063 773.235 434.063 L 745.959 434.063 Q 732.322 434.063 739.141 421.077 Z" style="fill: rgb(242, 95, 76);" transform="matrix(-0.00647, -0.999979, 0.999979, -0.006541, 198.586426, 1024.060913)" bx:shape="triangle 732.322 382.12 54.55 51.943 0.5 0.25 1@68e58138"/>
+</svg>

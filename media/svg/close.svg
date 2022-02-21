@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="600 200 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="grad1" cx="40%" cy="40%" r="60%">
+      <stop offset="0.75" style="stop-color:#FFFFFE;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#F25F4C;stop-opacity:0.5"/>
+    </radialGradient>
+  </defs>
+  <circle cx="650" cy="250" r="50" fill="url(#grad1)" style=""/>
+  <rect x="523.708" y="204.32" width="7.574" height="84.672" rx="3" ry="3" style="fill: rgb(242, 95, 76);" transform="matrix(0.736445, -0.676497, 0.676497, 0.736445, 93.893875, 424.831879)"/>
+  <rect x="523.708" y="204.32" width="7.574" height="84.672" rx="3" ry="3" style="fill: rgb(242, 95, 76);" transform="matrix(0.714516, 0.699619, -0.699619, 0.714516, 444.888641, -295.653503)"/>
+</svg>
